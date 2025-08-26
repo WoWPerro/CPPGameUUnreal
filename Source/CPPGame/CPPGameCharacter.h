@@ -16,6 +16,8 @@ struct FInputActionValue;
 
 DECLARE_LOG_CATEGORY_EXTERN(LogTemplateCharacter, Log, All);
 
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FONReloadSignature, AActor*, Factory);
+
 UCLASS(config=Game)
 class ACPPGameCharacter : public ACharacter
 {
@@ -67,5 +69,10 @@ public:
 	/** Returns FirstPersonCameraComponent subobject **/
 	UCameraComponent* GetFirstPersonCameraComponent() const { return FirstPersonCameraComponent; }
 
+	UFUNCTION()
+	void Reload();
+
+	UPROPERTY(BlueprintAssignable, Category = "Events")
+	FONReloadSignature OnReload;
 };
 

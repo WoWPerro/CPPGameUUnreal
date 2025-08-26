@@ -100,3 +100,8 @@ void ACPPGameCharacter::Look(const FInputActionValue& Value)
 		AddControllerPitchInput(LookAxisVector.Y);
 	}
 }
+
+void ACPPGameCharacter::Reload()
+{
+	FonReloadSignature.Broadcast();
+}
