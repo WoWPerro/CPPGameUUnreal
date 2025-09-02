@@ -103,5 +103,5 @@ void ACPPGameCharacter::Look(const FInputActionValue& Value)
 
 void ACPPGameCharacter::Reload()
 {
-	FonReloadSignature.Broadcast();
+	OnReload.Broadcast(this);
 }

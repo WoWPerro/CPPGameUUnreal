@@ -4,7 +4,9 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+#include "EnemyBase.h"
 #include "ZombieFactoryCPP.generated.h"
+
 
 UCLASS()
 class CPPGAME_API AZombieFactoryCPP : public AActor
@@ -23,10 +25,13 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
+	UPROPERTY(EditAnywhere, Category = "Factory")
+	TSubclassOf<AEnemyBase> ZombieBlueprint;
+	
 	UFUNCTION()
 	void SpawnZombie();
 
 	UFUNCTION()
-	void HandlePlayerReload();
+	void HandlePlayerReload(AActor* player);
 
 };
